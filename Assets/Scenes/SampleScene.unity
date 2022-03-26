@@ -692,7 +692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944982354}
   m_LocalRotation: {x: -0.10938163, y: -0.23456968, z: 0.40821788, w: 0.8754261}
-  m_LocalPosition: {x: 5.21, y: 1.94, z: -2.05}
+  m_LocalPosition: {x: 4.68, y: 2.53, z: -0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1226293223}
@@ -1108,8 +1108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41fa5ae2458825468d0a4300ca47502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGravityChange: {fileID: 1544811691}
-  finishGravityChange: {fileID: 944982355}
+  startGravityChange: {fileID: 944982355}
+  finishGravityChange: {fileID: 1544811691}
   road: {fileID: 947066586}
 --- !u!65 &1226293225
 BoxCollider:
@@ -1122,8 +1122,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.446922, y: 3.0254984, z: 8.969589}
-  m_Center: {x: 2.2503965, y: 0.51277304, z: 0.3567714}
+  m_Size: {x: 8.177105, y: 3.0254984, z: 2.2220936}
+  m_Center: {x: 4.885306, y: 0.5128218, z: 1.7611268}
 --- !u!1 &1310614923
 GameObject:
   m_ObjectHideFlags: 0

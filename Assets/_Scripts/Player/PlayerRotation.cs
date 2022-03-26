@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[RequireComponent(typeof(PlayerState))]
-public class PlayerStateController : MonoBehaviour
+public class PlayerRotationController : MonoBehaviour
 {
+    // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame

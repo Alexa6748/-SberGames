@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: OnGravityChange
   m_EditorClassIdentifier: 
   stateName: OnGravityChange
-  IsFirstCameraActive: 0
+  IsFirstCameraActive: 1
   IsCameraControlsEnabled: 0
-  IsMovementEnabled: 0
+  IsMovementEnabled: 1
+  AnimationTrigger: 
   UseGravity: 1
-  PlayerSpeed: 4
+  PlayerSpeed: 6

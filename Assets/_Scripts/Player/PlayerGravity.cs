@@ -16,6 +16,7 @@ public class PlayerGravity : MonoBehaviour
 
     private void Start()
     {
+        NormalDirection = Vector3.up;
         characterController = GetComponent<CharacterController>();
     }
     

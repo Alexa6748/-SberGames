@@ -9,14 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3318834dd9023bc4e9aff8e7806b580a, type: 3}
-  m_Name: OnRoadEnd
+  m_Script: {fileID: 11500000, guid: 6f930ee549aad7f44954939582afbf5a, type: 3}
+  m_Name: GameStateController
   m_EditorClassIdentifier: 
-  stateName: OnRoadEnd
-  IsFirstCameraActive: 1
-  IsCameraControlsEnabled: 1
-  IsMovementEnabled: 0
-  AnimationTrigger: 
-  UseGravity: 0
-  PlayerSpeed: 6
-  audioEffect: 4

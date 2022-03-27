@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] GameStateController controller;
+
     private Player player;
     public bool isGrounded;
     private Rigidbody rb;
@@ -26,15 +29,18 @@ public class CharacterController : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         isGrounded = false;
+        Observable.Timer(TimeSpan.FromSeconds(2)).TakeWhile(_ => isGrounded == false && player.HasState("OnRoadEnd")).Subscribe(_ =>
+        {
+            controller.GameOver();
+        });
     }
 
     public void Move(Vector3 direction, float speed)
     {
         if (isGrounded && direction != zero)
         {
-            rb.AddForce(direction * speed, ForceMode.VelocityChange);
+            rb.velocity += direction * speed;
             rb.velocity = rb.velocity.normalized * speed;
-            rb.velocity = ZeroY(rb.velocity);
         }
         else if (direction == zero)
         {
@@ -53,7 +59,8 @@ public class CharacterController : MonoBehaviour
     {
         if (player.CurrentState.UseGravity)
         {
+            Debug.Log("sdfds");
             rb.AddForce(direction * speed, ForceMode.VelocityChange);
-        }        
+        }
     }
 }

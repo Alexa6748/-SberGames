@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Idle
   m_EditorClassIdentifier: 
   stateName: Idle
-  IsFirstCameraActive: 1
+  IsFirstCameraActive: 0
   IsCameraControlsEnabled: 0
   IsMovementEnabled: 1
+  AnimationTrigger: 
   UseGravity: 1
-  PlayerSpeed: 4
+  PlayerSpeed: 6

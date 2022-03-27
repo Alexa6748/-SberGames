@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class GravityController : MonoBehaviour
 {
@@ -23,17 +19,9 @@ public class GravityController : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    private void StartGravityChange()
+    public void StartGravityChange()
     {
         started = true;
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.TryGetComponent(out player))
-        {
-            player.CurrentState.IsFirstCameraActive = !player.CurrentState.IsFirstCameraActive;
-        }
     }
 
     private void OnTriggerStay(Collider collider)
@@ -45,7 +33,7 @@ public class GravityController : MonoBehaviour
             float distanceToEnd = Vector3.Project(directionToEnd, gravityChangedDirection).magnitude;
             Vector3 normalVector = startGravityChange.up * (1 - distanceToEnd / maxDistance) 
                 + finishGravityChange.up * distanceToEnd / maxDistance;
-            PlayerGravity.NormalDirection = normalVector;
+            PlayerGravity.NormalDirection = Vector3.Lerp(PlayerGravity.NormalDirection, normalVector, 0.5f);
         }
     }
 
@@ -58,6 +46,9 @@ public class GravityController : MonoBehaviour
             float distanceToEnd = Vector3.Project(directionToEnd, gravityChangedDirection).magnitude;
             Vector3 normalVector = finishGravityChange.up * distanceToEnd / maxDistance;
             PlayerGravity.NormalDirection = normalVector;
+            player.SetState("Idle");
+
+            started = false;
         }
     }
 

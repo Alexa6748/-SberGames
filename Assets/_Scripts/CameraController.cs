@@ -13,8 +13,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera camera2;
     [SerializeField] private CinemachineFreeLook freeLookCamera;
 
-    private float smoothTime = 0.01f;
-
     private void Start()
     {
         PlayerStateController.OnStateChange += () =>
@@ -26,6 +24,9 @@ public class CameraController : MonoBehaviour
             else if (!player.HasState("Idle"))
             {
                 DisableCameraControl();
+            }
+            else if (player.HasState("OnGravityChange"))
+            {
                 BlendBetweenCameras();
             }
         };

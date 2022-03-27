@@ -9,6 +9,7 @@ public class CameraAngleDet : MonoBehaviour
     [SerializeField] public float _x, _y, _z;
     [SerializeField] private RoadAnimatorControl roadAnim;
     [SerializeField] private Player player;
+    [SerializeField] private GravityController gravityController;
     private bool ifInRegion = false;
 
     public static UnityAction OnEnterRegion;
@@ -28,6 +29,7 @@ public class CameraAngleDet : MonoBehaviour
             ifInRegion = false;
             roadAnim.StartAnimation();
             player.SetState("OnGravityChange");
+            gravityController.StartGravityChange();
             Debug.Log("cmera ok");
 
         }

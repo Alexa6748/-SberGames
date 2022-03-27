@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput), 
+[RequireComponent(typeof(PlayerGravity),
     typeof(PlayerMovementController), 
     typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private PlayerStateController controller;
 
     public PlayerState CurrentState => controller.CurrentState;

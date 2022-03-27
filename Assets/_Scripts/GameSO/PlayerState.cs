@@ -23,5 +23,8 @@ public class PlayerState : State
     public bool UseGravity = true;
 
     [SerializeField]
-    public float PlayerSpeed = 4; 
+    public float PlayerSpeed = 4;
+
+    [SerializeField]
+    public AudioClip audioEffect;
 }

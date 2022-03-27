@@ -13,6 +13,8 @@ public class PlayerMovementController : MonoBehaviour
     Vector3 moveTo;
 
     private float smoothTime = 0.01f;
+    private Vector2 input;
+    Vector2 zero = Vector2.zero;
 
     void Start()
     {
@@ -20,10 +22,9 @@ public class PlayerMovementController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         camera = Camera.main.transform;
 
-        PlayerInputController.OnMove += Move;
+        PlayerInputController.OnMove += Move;        
     }
-
-    private void Update()
+    private void FixedUpdate()
     {
         transform.up = PlayerGravity.NormalDirection;
     }

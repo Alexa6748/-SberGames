@@ -41,7 +41,6 @@ public class CharacterController : MonoBehaviour
 
     public void ApplyGravity(Vector3 direction, float speed)
     {
-
         rb.AddForce(direction * speed, ForceMode.VelocityChange);
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerState : MonoBehaviour
 {
@@ -17,5 +18,5 @@ public class PlayerState : MonoBehaviour
     public bool IsFirstCameraActive { get; set; } = true;
     public bool IsCameraControlsEnabled { get; set; } = false;
 
-    public static Action<PlayerState> onGravityChange;
+    public static UnityAction<PlayerState> onGravityChange;
 }

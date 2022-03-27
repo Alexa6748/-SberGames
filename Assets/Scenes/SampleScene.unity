@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102428817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 5.83, z: -1.22}
+  m_LocalPosition: {x: -0.020133741, y: 5.83, z: -2.9999325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1983823750}
@@ -340,8 +340,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137225033}
-  m_LocalRotation: {x: 0.11048392, y: 0.000000001933162, z: -2.1489883e-10, w: 0.99387795}
-  m_LocalPosition: {x: 2.69, y: 0, z: -1.77}
+  m_LocalRotation: {x: 0.11048328, y: 0.0033351271, z: -0.0003707476, w: 0.99387234}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1183957147}
@@ -1166,8 +1166,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834577235}
-  m_LocalRotation: {x: 0.22020599, y: 1e-45, z: -0, w: 0.97545344}
-  m_LocalPosition: {x: 2.68, y: 0, z: -1.76}
+  m_LocalRotation: {x: 0.22020474, y: 0.0032732724, z: -0.00073893246, w: 0.97544795}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 531746409}
@@ -2617,7 +2617,7 @@ MonoBehaviour:
   _x: 0
   _y: 90
   _z: 0
-  roadAnim: {fileID: 0}
+  roadAnim: {fileID: 1854030818}
   player: {fileID: 1368546347}
 --- !u!65 &1755129997
 BoxCollider:
@@ -2886,6 +2886,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: aff32a8394808044ba5dc8970de8303a, type: 3}
+--- !u!114 &1854030818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854030815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5979989efe792b45a6a37fc00e62217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolName: MoveRoad2
+--- !u!95 &1854030819
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854030815}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a67a674e515d6f140ae1715128b49a5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1880524491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3030,8 +3062,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983823748}
-  m_LocalRotation: {x: 0.34042525, y: 0.000000022880055, z: -0.000000008283722, w: 0.9402717}
-  m_LocalPosition: {x: 2.68, y: 0, z: -1.75}
+  m_LocalRotation: {x: 0.34042335, y: 0.0031551989, z: -0.0011423397, w: 0.9402663}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 364688426}

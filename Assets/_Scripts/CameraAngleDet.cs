@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CameraAngleDet : MonoBehaviour
 {
     [SerializeField] private Transform _camera;
-    [SerializeField] private float _x, _y, _z;
+    [SerializeField] public float _x, _y, _z;
     [SerializeField] private RoadAnimatorControl roadAnim;
     [SerializeField] private Player player;
     private bool ifInRegion = false;
@@ -23,7 +23,7 @@ public class CameraAngleDet : MonoBehaviour
 
     public void ChechCameraAngle()
     {
-        if (IsRightAngle(-10, 10))
+        if (IsRightAngle(-20, 20))
         {
             ifInRegion = false;
             roadAnim.StartAnimation();
@@ -33,6 +33,7 @@ public class CameraAngleDet : MonoBehaviour
         }
         else
         {
+            Debug.Log(_camera.rotation.eulerAngles.y);
             Debug.Log("camera not ok");
         }
     }
@@ -48,8 +49,8 @@ public class CameraAngleDet : MonoBehaviour
 
     public bool IsRightAngle(float min, float max)
     {
-        return (_x - _camera.rotation.x) + (_y - _camera.rotation.y) + (_z - _camera.rotation.z) < max
-            && (_x - _camera.rotation.x) + (_y - _camera.rotation.y) + (_z - _camera.rotation.z) > min;
+        return (_x - _camera.rotation.eulerAngles.x) + (_y - _camera.rotation.eulerAngles.y) + (_z - _camera.rotation.eulerAngles.z) < max
+            && (_x - _camera.rotation.eulerAngles.x) + (_y - _camera.rotation.eulerAngles.y) + (_z - _camera.rotation.eulerAngles.z) > min;
     }
 }
 

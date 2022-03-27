@@ -17,12 +17,11 @@ public class PlayerState : State
     public bool IsMovementEnabled = true;
 
     [SerializeField]
-    public string AnimationTrigger { get; set; }
+    public string AnimationTrigger;
 
     [SerializeField]
     public bool UseGravity = true;
 
     [SerializeField]
-
-    public float PlayerSpeed = 4;
+    public float PlayerSpeed = 4; 
 }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3318834dd9023bc4e9aff8e7806b580a, type: 3}
-  m_Name: Idle
+  m_Name: Idle 1
   m_EditorClassIdentifier: 
-  stateName: Idle
-  IsFirstCameraActive: 1
+  stateName: Idle1
+  IsFirstCameraActive: 0
   IsCameraControlsEnabled: 0
   IsMovementEnabled: 1
   AnimationTrigger: 

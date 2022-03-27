@@ -30,6 +30,7 @@ public class CameraAngleDet : MonoBehaviour
             roadAnim.StartAnimation();
             player.SetState("OnGravityChange");
             gravityController.StartGravityChange();
+            GetComponent<Collider>().enabled = false;
             Debug.Log("cmera ok");
 
         }

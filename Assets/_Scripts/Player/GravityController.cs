@@ -46,7 +46,7 @@ public class GravityController : MonoBehaviour
             float distanceToEnd = Vector3.Project(directionToEnd, gravityChangedDirection).magnitude;
             Vector3 normalVector = finishGravityChange.up * distanceToEnd / maxDistance;
             PlayerGravity.NormalDirection = normalVector;
-            player.SetState("Idle");
+            player.SetState("Idle1");
 
             started = false;
         }

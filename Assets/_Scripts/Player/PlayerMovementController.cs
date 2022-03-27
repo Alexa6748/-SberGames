@@ -1,6 +1,4 @@
-﻿using Cinemachine.Utility;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 using static PlayerStateController;
 
 

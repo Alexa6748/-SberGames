@@ -7,6 +7,7 @@ public class CameraAngleDet : MonoBehaviour
 {
     [SerializeField] private Transform _camera;
     [SerializeField] private float _x, _y, _z;
+    [SerializeField] private RoadAnimatorControl roadAnim;
     private Player player;
     private bool ifInRegion = false;
 
@@ -30,6 +31,7 @@ public class CameraAngleDet : MonoBehaviour
         if (IsRightAngle(-10, 10))
         {
             ifInRegion = false;
+            roadAnim.StartAnimation();
             player.SetState("OnGravityChange");
             Debug.Log("cmera ok");
 

@@ -669,7 +669,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 0
+    m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -849,6 +849,7 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
+  - component: {fileID: 963194232}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -936,9 +937,9 @@ MonoBehaviour:
   offset: {x: 0, y: 8, z: -10}
   rotateSpeed: 2
   playerInput: {fileID: 1368546345}
-  sensitive: 0
   camera1: {fileID: 845764576}
   camera2: {fileID: 1777318307}
+  cinemachineBrain: {fileID: 0}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,6 +1034,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &963194232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00db655f1f281a489873371d23bcb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 1368546345}
 --- !u!1 &985989078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,11 +1244,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1368546342}
+  - component: {fileID: 1368546347}
   - component: {fileID: 1368546343}
   - component: {fileID: 1368546345}
   - component: {fileID: 1368546346}
-  - component: {fileID: 1368546348}
-  - component: {fileID: 1368546347}
   - component: {fileID: 1368546349}
   - component: {fileID: 1368546350}
   - component: {fileID: 1368546344}
@@ -1272,7 +1285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d635c73536eca14698a517e2f4c5388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
 --- !u!54 &1368546344
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1341,21 +1353,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1368546341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d67aba383f43a44a2a8fe8fb2b2c7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6468cb6ae844cb041b999a06d774e852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1368546348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368546341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3318834dd9023bc4e9aff8e7806b580a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  playerInput: {fileID: 1368546345}
+  controller: {fileID: 11400000, guid: 7b32e9dab205e8c44ab22d90f277cc15, type: 2}
 --- !u!114 &1368546349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1886,7 +1888,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755129994}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 0.39, z: 2.14}
@@ -1937,7 +1939,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 0
+    m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []

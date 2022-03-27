@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static PlayerStateController;
 
 
 public class PlayerGravity : MonoBehaviour
 {
     [SerializeField] private float gravityValue = -12;
+    public static Vector3 NormalDirection { get; set; } = Vector3.up;
 
     private bool groundedPlayer;
     private Vector3 gravity;
@@ -24,11 +26,12 @@ public class PlayerGravity : MonoBehaviour
         {
             gravity = Vector3.zero;
         }
+
         ApplyGravity();
     }
 
     private void ApplyGravity()
     {
-        characterController.ApplyGravity(PlayerState.CurrentState.NormalDirection, Time.deltaTime * gravityValue);
+        characterController.ApplyGravity(NormalDirection, Time.deltaTime * gravityValue);
     }
 }

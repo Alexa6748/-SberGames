@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    private Player player;
     public bool isGrounded;
     private Rigidbody rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        player = GetComponent<Player>();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -26,7 +28,7 @@ public class CharacterController : MonoBehaviour
 
     public void Move(Vector3 direction, float speed)
     {
-        if (isGrounded)
+        if (isGrounded && player.CurrentState.IsMovementEnabled)
         {
             rb.velocity += direction;
             rb.velocity = rb.velocity.normalized * speed;
@@ -41,6 +43,9 @@ public class CharacterController : MonoBehaviour
 
     public void ApplyGravity(Vector3 direction, float speed)
     {
-        rb.AddForce(direction * speed, ForceMode.VelocityChange);
+        if (player.CurrentState.UseGravity)
+        {
+            rb.AddForce(direction * speed, ForceMode.VelocityChange);
+        }        
     }
 }

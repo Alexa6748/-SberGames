@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraAngleDet : MonoBehaviour
 {
-    [SerializeField] GameObject _camera;
-    [SerializeField] float _x, _y, _z;
-    bool ifInRegion = false;
+    [SerializeField] private Transform _camera;
+    [SerializeField] private float _x, _y, _z;
+    private Player player;
+    private bool ifInRegion = false;
+
+    public static UnityAction OnEnterRegion;
+
+    private void Start()
+    {
+        player = GetComponent<Player>();
+    }
 
     public void Update()
     {
@@ -18,11 +27,12 @@ public class CameraAngleDet : MonoBehaviour
 
     public void ChechCameraAngle()
     {
-        if ((_x - _camera.transform.rotation.x) + (_y - _camera.transform.rotation.y) + (_z - _camera.transform.rotation.z) < 10 && (_x - _camera.transform.rotation.x) + (_y - _camera.transform.rotation.y) + (_z - _camera.transform.rotation.z) > -10)
+        if (IsRightAngle(-10, 10))
         {
             ifInRegion = false;
-            //анимация приближения дороги и отрубаем движение камеры, подрубаем движение и начинаем перемену гравитации
+            player.SetState("OnGravityChange");
             Debug.Log("cmera ok");
+
         }
         else
         {
@@ -30,10 +40,19 @@ public class CameraAngleDet : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collider)
     {
-        ifInRegion = true;
-        //отрубить передвижение и врубить поворот камеры
+        if (collider.CompareTag("Player"))
+        {
+            ifInRegion = true;
+            player.SetState("OnRoadEnd");
+        }        
+    }
+
+    public bool IsRightAngle(float min, float max)
+    {
+        return (_x - _camera.rotation.x) + (_y - _camera.rotation.y) + (_z - _camera.rotation.z) < max
+            && (_x - _camera.rotation.x) + (_y - _camera.rotation.y) + (_z - _camera.rotation.z) > min;
     }
 }
 

@@ -6,47 +6,59 @@ using UnityEngine.InputSystem;
 
 public class GravityController : MonoBehaviour
 {
+    private Player player;
     [SerializeField] private Transform startGravityChange;
     [SerializeField] private Transform finishGravityChange;
     [SerializeField] private RoadController road;
 
-    private PlayerGravity player;
     private Vector3 gravityChangedDirection;
     private float maxDistance;
+
+    private bool started;
     
     private void Start()
     {
-        
         gravityChangedDirection = finishGravityChange.position - startGravityChange.position;
         maxDistance = gravityChangedDirection.magnitude;
-        
+        player = GetComponent<Player>();
+    }
+
+    private void StartGravityChange()
+    {
+        started = true;
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.TryGetComponent(out player))
         {
-            PlayerState.CurrentState.IsFirstCameraActive = !PlayerState.CurrentState.IsFirstCameraActive;
-            PlayerState.onGravityChange?.Invoke(PlayerState.CurrentState);
-            player.GetComponent<Rigidbody>().freezeRotation = false;
+            player.CurrentState.IsFirstCameraActive = !player.CurrentState.IsFirstCameraActive;
         }
     }
 
     private void OnTriggerStay(Collider collider)
     {
-        if (collider.TryGetComponent(out player))
+        if (started && collider.TryGetComponent(out player))
         {
             Vector3 directionToEnd = player.transform.position - finishGravityChange.position;
             
             float distanceToEnd = Vector3.Project(directionToEnd, gravityChangedDirection).magnitude;
-            Vector3 normalVector = finishGravityChange.up * distanceToEnd / maxDistance;
-            PlayerState.CurrentState.NormalDirection = normalVector;
+            Vector3 normalVector = startGravityChange.up * (1 - distanceToEnd / maxDistance) 
+                + finishGravityChange.up * distanceToEnd / maxDistance;
+            PlayerGravity.NormalDirection = normalVector;
         }
     }
 
     private void OnTriggerExit(Collider collider)
     {
-        
+        if (collider.TryGetComponent(out player))
+        {
+            Vector3 directionToEnd = player.transform.position - finishGravityChange.position;
+
+            float distanceToEnd = Vector3.Project(directionToEnd, gravityChangedDirection).magnitude;
+            Vector3 normalVector = finishGravityChange.up * distanceToEnd / maxDistance;
+            PlayerGravity.NormalDirection = normalVector;
+        }
     }
 
 

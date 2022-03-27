@@ -26,8 +26,18 @@ public class GravityController : MonoBehaviour
     {
         started = true;
     }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.TryGetComponent(out player))
+        {
+            if (player.HasState("Idle1"))
+            {
+                player.SetState("OnGravityChange");
+            }
+        }
+    }
 
-    private void OnTriggerStay(Collider collider)
+        private void OnTriggerStay(Collider collider)
     {
         if (started && collider.TryGetComponent(out player))
         {

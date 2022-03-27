@@ -24,7 +24,7 @@ public class CameraAngleDet : MonoBehaviour
 
     public void ChechCameraAngle()
     {
-        if (IsRightAngle(-20, 20))
+        if (IsRightAngle(-8, 8))
         {
             ifInRegion = false;
             roadAnim.StartAnimation();

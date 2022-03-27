@@ -57,7 +57,7 @@ public class CharacterController : MonoBehaviour
 
     public void ApplyGravity(Vector3 direction, float speed)
     {
-        if (player.CurrentState.UseGravity)
+        if (player.CurrentState.UseGravity || !isGrounded)
         {
             Debug.Log("sdfds");
             rb.AddForce(direction * speed, ForceMode.VelocityChange);

@@ -2644,7 +2644,7 @@ MonoBehaviour:
     OrthographicSize: 5
     NearClipPlane: 0.1
     FarClipPlane: 200
-    Dutch: 90
+    Dutch: 120
     LensShift: {x: 0, y: 0}
   m_Transitions:
     m_BlendHint: 0
@@ -2661,7 +2661,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777318306}
-  m_LocalRotation: {x: 0.2238189, y: 0.29377222, z: -0.07096108, w: 0.9265892}
+  m_LocalRotation: {x: 0.2238189, y: 0.29377225, z: -0.07096109, w: 0.9265892}
   m_LocalPosition: {x: -3.13, y: 6.308, z: -4.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

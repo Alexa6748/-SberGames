@@ -5,5 +5,5 @@ using UnityEngine;
 public class State : ScriptableObject
 {
     [SerializeField]
-    private string stateName;
+    public string stateName;
 }

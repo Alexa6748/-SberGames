@@ -49,9 +49,16 @@ public class GravityController : MonoBehaviour
             float distanceToEnd = Vector3.Project(directionToEnd, gravityChangedDirection).magnitude;
             Vector3 normalVector = finishGravityChange.up * distanceToEnd / maxDistance;
             PlayerGravity.NormalDirection = normalVector;
-            player.SetState("Idle1");
-            OnGravityChange?.Invoke();
+            if (player.CurrentState.IsFirstCameraActive)
+            {
+                player.SetState("Idle1");
+            }
+            else
+            {
+                player.SetState("Idle");
+            }
             started = false;
+            GetComponent<Collider>().enabled = false;
         }
     }
 

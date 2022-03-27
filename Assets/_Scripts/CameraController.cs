@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera camera2;
     [SerializeField] private CinemachineFreeLook freeLookCamera;
 
+    bool lastStateOnRoadEnd;
+
     private void Start()
     {
         PlayerStateController.OnStateChange += () =>
@@ -19,11 +21,17 @@ public class CameraController : MonoBehaviour
             if (player.HasState("OnRoadEnd"))
             {
                 EnableCameraControl();
+                lastStateOnRoadEnd = true;
             }
-            else if (!player.HasState("Idle"))
+            else
             {
                 DisableCameraControl();
             }            
+            
+            if (player.HasState("OnGravityChange"))
+            {
+                BlendBetweenCameras();
+            }
         };
 
         GravityController.OnGravityChange += BlendBetweenCameras;
@@ -41,7 +49,7 @@ public class CameraController : MonoBehaviour
 
     void BlendBetweenCameras()
     {
-        if (player.CurrentState.IsFirstCameraActive)
+        if (camera2.Priority > camera1.Priority)
         {
             camera2.Priority = camera1.Priority - 1;
         }

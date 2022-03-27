@@ -14,11 +14,20 @@ public class PlayerStateController : ScriptableObject
 
     public PlayerState this[string stateName]
     {
-        get => states.Find(x => x.name == stateName);
+        get {
+            foreach (var state in states)
+            {
+                if (state.stateName == stateName)
+                    return state;
+            }
+            Debug.LogError("Cannot find state with name" + stateName);
+            return states[0];
+        }
     }
 
     public void SetCurrentState(string stateName)
     {
+        Debug.LogWarning(this[stateName]);
         CurrentState = this[stateName];
         
         OnStateChange?.Invoke();

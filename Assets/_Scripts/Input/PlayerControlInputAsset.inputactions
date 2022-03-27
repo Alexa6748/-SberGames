@@ -58,7 +58,7 @@
                     "id": "20193475-662e-4e26-bb5f-a28967f80477",
                     "path": "<Touchscreen>/delta",
                     "interactions": "",
-                    "processors": "InvertVector2(invertX=false),NormalizeVector2",
+                    "processors": "InvertVector2,NormalizeVector2",
                     "groups": "",
                     "action": "Rotation",
                     "isComposite": false,

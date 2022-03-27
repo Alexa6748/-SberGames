@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerStateController controller;
 
     public PlayerState CurrentState => controller.CurrentState;
-    public PlayerInput PlayerInput => playerInput;
 
     private void Start()
     {

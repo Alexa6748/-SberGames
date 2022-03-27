@@ -14,12 +14,13 @@ public class PlayerStateController : ScriptableObject
 
     public PlayerState this[string stateName]
     {
-        get => states.Find(State => State.name == stateName);
+        get => states.Find(x => x.name == stateName);
     }
 
     public void SetCurrentState(string stateName)
     {
         CurrentState = this[stateName];
+        
         OnStateChange?.Invoke();
     }
 

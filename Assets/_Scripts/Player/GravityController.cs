@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GravityController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GravityController : MonoBehaviour
     private float maxDistance;
 
     private bool started;
+
+    public static UnityAction OnGravityChange; 
     
     private void Start()
     {
@@ -47,7 +50,7 @@ public class GravityController : MonoBehaviour
             Vector3 normalVector = finishGravityChange.up * distanceToEnd / maxDistance;
             PlayerGravity.NormalDirection = normalVector;
             player.SetState("Idle1");
-
+            OnGravityChange?.Invoke();
             started = false;
         }
     }

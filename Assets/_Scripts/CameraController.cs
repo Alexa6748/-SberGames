@@ -23,12 +23,10 @@ public class CameraController : MonoBehaviour
             else if (!player.HasState("Idle"))
             {
                 DisableCameraControl();
-            }
-            else if (player.HasState("OnGravityChange"))
-            {
-                BlendBetweenCameras();
-            }
+            }            
         };
+
+        GravityController.OnGravityChange += BlendBetweenCameras;
     }
 
     private void DisableCameraControl()

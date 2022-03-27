@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         SetState("Idle");
-        Debug.Log(CurrentState);
     }
 
     public void SetState(string stateName) => controller.SetCurrentState(stateName);

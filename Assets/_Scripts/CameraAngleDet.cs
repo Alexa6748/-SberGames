@@ -7,15 +7,10 @@ public class CameraAngleDet : MonoBehaviour
 {
     [SerializeField] private Transform _camera;
     [SerializeField] private float _x, _y, _z;
-    private Player player;
+    [SerializeField] private Player player;
     private bool ifInRegion = false;
 
     public static UnityAction OnEnterRegion;
-
-    private void Start()
-    {
-        player = GetComponent<Player>();
-    }
 
     public void Update()
     {

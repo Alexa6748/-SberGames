@@ -14,9 +14,16 @@ public class PlayerInputController : MonoBehaviour
 
     Vector2 zero = Vector2.zero;
 
-    void Update()
+    private bool startMove;
+    private bool startRotate;
+
+    void FixedUpdate()
     {
         LookMove();
+    }
+
+    private void LateUpdate()
+    {
         LookRotation();
     }
 
@@ -24,8 +31,13 @@ public class PlayerInputController : MonoBehaviour
     {
         if (CheckInput(playerInput.actions["Move"], out Vector2 input))
         {
-            Debug.Log("move");
             OnMove?.Invoke(input);
+            startMove = true;
+        }
+        else if (startMove)
+        {
+            OnMove?.Invoke(zero);
+            startMove = false;
         }
     }
 
@@ -33,8 +45,13 @@ public class PlayerInputController : MonoBehaviour
     {
         if (CheckInput(playerInput.actions["Rotation"], out Vector2 input))
         {
-            Debug.Log("rot");
             OnRotate?.Invoke(input);
+            startRotate = true;
+        }
+        else if (startRotate)
+        {
+            OnMove?.Invoke(zero);
+            startRotate = false;
         }
     }
 
